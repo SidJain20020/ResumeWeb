@@ -159,6 +159,30 @@
         line-height: 1.8;
       }
       
+
+      /* Mobile Summary Styling */
+.mobile-summary {
+  display: none;
+  font-size: 15px;
+  margin-top: 20px;
+  padding: 0 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+/* Show summary and hide full bio on mobile */
+@media screen and (max-width: 768px) {
+  .mobile-summary {
+    display: block;
+  }
+
+  .profile-bio {
+    display: none;
+  }
+}
+
+      
       /* Main Content Styles */
       .main-content {
         padding: 50px 0;
@@ -406,6 +430,17 @@
               </p>
           </div>
         </div>
+
+        <div class="mobile-summary">
+            <p>
+                Dynamic professional with leadership experience in student council and global event organization.
+                Skilled in event management, strategic planning, and team collaboration.
+                Contributed to community development with Krishna Sakhi Welfare Society.
+                Effective communicator with a passion for learning and social impact.
+                
+          </div>
+          
+
         <div class="profile-bio">
           <p>
             Dynamic and motivated professional with a proven track record in
@@ -415,7 +450,7 @@
             event management and leadership. My proactive approach and
             dedication enable me to thrive in dynamic environments where
             teamwork and innovation are encouraged. Also, passionate about
-            community welfare, I am currently engaged with Krishna Sakhi Welfare
+            community welfare, I also worked with Krishna Sakhi Welfare
             Society, driving initiatives to uplift slum communities in Indore.
             My enthusiasm for learning and strong communication skills allow me
             to effectively collaborate with diverse teams and stakeholders.
@@ -473,7 +508,7 @@
           <div class="experience-item">
             <h3>Market Researcher</h3>
             <p>Fagro India, Indore</p>
-            <p class="date">May 2024 - Present</p>
+            <p class="date">May 2024 - July 2024</p>
             <ul>
               <li>
                 Led detailed market analysis to uncover trends, consumer
