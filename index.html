@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: /api/; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Siddharth Jain - Resume</title>
+
+    <style>
+
+    :root {
+        --primary-color: #7353BA;       /* Medium purple for primary elements */
+        --secondary-color: #2F195F;     /* Deep purple for secondary elements */
+        --text-color: #0F1020;          /* Very dark blue for main text */
+        --light-color: #f8f9fa;         /* Keeping light color for contrast */
+        --dark-color: #0F1020;          /* Very dark blue for dark elements */
+        --accent-color: #9C82D4;        /* Lighter purple for accents */
+        --section-bg: #f8f9fa;          /* Keeping light bg for readability */
+        --border-radius: 8px;
+        --transition: all 0.3s ease;
+        --navbar-height: 60px;          /* Define navbar height as a variable */
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      body {
+        color: var(--text-color);
+        background-color: #fafafa;
+        line-height: 1.6;
+        padding-top: var(--navbar-height); /* Add padding to account for fixed navbar */
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      /* Navbar Styles */
+      .navbar {
+        background-color: var(--dark-color);
+        color: var(--light-color);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        height: var(--navbar-height); /* Set fixed height for navbar */
+        box-shadow: 0 2px 10px rgba(47, 25, 95, 0.2); /* Shadow with secondary color */
+      }
+      
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        height: 100%; /* Make container take full height of navbar */
+      }
+      
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        text-decoration: none;
+        color: var(--light-color);
+      }
+      
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+      
+      .nav-links li {
+        margin-left: 20px;
+      }
+      
+      .nav-links a {
+        color: var(--light-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+      
+      .nav-links a:hover {
+        color: var(--accent-color);
+      }
+      
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--light-color);
+        font-size: 24px;
+        cursor: pointer;
+      }
+      
+      /* Header Styles */
+      .header {
+        /* Remove margin-top since we're using padding-top on body */
+        padding: 60px 0 40px;
+        background: linear-gradient(135deg, #0F1020 0%, #2F195F 100%); /* Dark gradient */
+        color: white;
+        text-align: center;
+      }
+      
+      .profile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 40px;
+      }
+      
+      .profile-img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid var(--light-color);
+        background-color: #e9ecef;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(15, 16, 32, 0.3); /* Shadow with dark color */
+      }
+      
+      .profile-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .profile-info {
+        text-align: left;
+      }
+      
+      .profile-info h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+        font-weight: 700;
+        text-shadow: 1px 1px 3px rgba(15, 16, 32, 0.5); /* Text shadow for depth */
+      }
+      
+      .profile-info p {
+        margin-bottom: 5px;
+        font-size: 16px;
+      }
+      
+      .profile-bio {
+        margin-top: 20px;
+        max-width: 800px;
+        margin: 20px auto 0;
+        padding: 0 20px;
+        font-size: 16px;
+        line-height: 1.8;
+      }
+      
+      /* Main Content Styles */
+      .main-content {
+        padding: 50px 0;
+      }
+      
+      .section {
+        margin-bottom: 40px;
+      }
+      
+      .section-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+        color: var(--secondary-color); /* Using deep purple for section titles */
+      }
+      
+      .section-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 3px;
+        background-color: var(--primary-color);
+      }
+      
+      .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      
+      .skill {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 8px 16px;
+        border-radius: var(--border-radius);
+        font-size: 14px;
+        box-shadow: 0 2px 5px rgba(47, 25, 95, 0.15); /* Subtle shadow */
+        transition: var(--transition);
+      }
+      
+      .skill:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(47, 25, 95, 0.2);
+        background-color: var(--secondary-color);
+      }
+      
+      .education-item,
+      .experience-item,
+      .workshop-item {
+        background-color: var(--section-bg);
+        border-radius: var(--border-radius);
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 10px rgba(15, 16, 32, 0.05);
+        transition: var(--transition);
+        border-left: 3px solid var(--primary-color); /* Adding a left border accent */
+      }
+      
+      .education-item:hover,
+      .experience-item:hover,
+      .workshop-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(47, 25, 95, 0.1);
+        border-left: 3px solid var(--secondary-color);
+      }
+      
+      .education-item h3,
+      .experience-item h3,
+      .workshop-item h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: var(--secondary-color); /* Deep purple for headers */
+      }
+      
+      .education-item p,
+      .experience-item p,
+      .workshop-item p {
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+      
+      .experience-item ul {
+        padding-left: 20px;
+        margin-top: 10px;
+      }
+      
+      .experience-item li {
+        margin-bottom: 5px;
+      }
+      
+      .date {
+        font-style: italic;
+        color: #6c757d;
+      }
+      
+      /* Footer Styles */
+      .footer {
+        background: linear-gradient(135deg, #0F1020 0%, #2F195F 100%); /* Dark gradient */
+        color: var(--light-color);
+        padding: 30px 0;
+        text-align: center;
+      }
+      
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .social-links {
+        display: flex;
+        margin: 20px 0;
+      }
+      
+      .social-links a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--light-color);
+        color: var(--secondary-color); /* Using deep purple */
+        margin: 0 10px;
+        text-decoration: none;
+        transition: var(--transition);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      
+      .social-links a:hover {
+        background-color: var(--primary-color);
+        color: var(--light-color);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      }
+      
+      .contact-info {
+        margin-bottom: 20px;
+      }
+      
+      .contact-info h3 {
+        color: var(--accent-color); /* Using accent color */
+        margin-bottom: 10px;
+      }
+      
+      .contact-info p {
+        margin-bottom: 5px;
+      }
+      
+      .copyright {
+        margin-top: 20px;
+        font-size: 14px;
+        color: rgba(248, 249, 250, 0.7); /* Slightly transparent white */
+      }
+      
+      /* Responsive Styles */
+      @media screen and (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: var(--navbar-height); /* Use the navbar height variable */
+          left: 0;
+          right: 0;
+          background-color: var(--dark-color);
+          padding: 20px;
+          text-align: center;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+      
+        .nav-links.active {
+          display: flex;
+        }
+      
+        .nav-links li {
+          margin: 10px 0;
+        }
+      
+        .mobile-menu-btn {
+          display: block;
+        }
+      
+        .profile {
+          flex-direction: column;
+          text-align: center;
+        }
+      
+        .profile-info {
+          text-align: center;
+        }
+      
+        .section-title {
+          text-align: center;
+        }
+      
+        .section-title::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      
+        .skills-container {
+          justify-content: center;
+        }
+      }
+</style>
+
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-container container">
+        <a href="#" class="logo">Siddharth Jain</a>
+        <button class="mobile-menu-btn">☰</button>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#workshops">Workshops</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header" id="about">
+      <div class="container">
+        <div class="profile">
+          <div class="profile-img">
+            <img src="IMG_9477.JPG" alt="Siddharth Jain" />
+          </div>
+          <div class="profile-info">
+            <h1>Siddharth Jain</h1>
+            <p><i class="fas fa-phone"></i> Phone: 8770996600</p>
+            <p>
+              <i class="fas fa-envelope"></i> Email: siddharthjain2839@gmail.com
+            </p>
+            <p>
+                <button 
+                onclick="window.open('https://www.linkedin.com/in/siddharth-j-604238255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app', '_blank')" 
+                style="background: none; border: none; color: inherit; font: inherit; cursor: pointer; padding: 0; text-decoration: underline;">LinkedIn</button>
+              </p>
+          </div>
+        </div>
+        <div class="profile-bio">
+          <p>
+            Dynamic and motivated professional with a proven track record in
+            leadership and organizational roles. As the former Sports Secretary
+            in the student council and a key member of the organizing team for
+            the IAAS World Annual Directors Meeting, I have honed my skills in
+            event management and leadership. My proactive approach and
+            dedication enable me to thrive in dynamic environments where
+            teamwork and innovation are encouraged. Also, passionate about
+            community welfare, I am currently engaged with Krishna Sakhi Welfare
+            Society, driving initiatives to uplift slum communities in Indore.
+            My enthusiasm for learning and strong communication skills allow me
+            to effectively collaborate with diverse teams and stakeholders.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Skills Section -->
+        <section class="section" id="skills">
+          <h2 class="section-title">Skills</h2>
+          <div class="skills-container">
+            <div class="skill">Leadership</div>
+            <div class="skill">Team Collaboration</div>
+            <div class="skill">Event Management</div>
+            <div class="skill">Strong Communication</div>
+            <div class="skill">Creativity</div>
+            <div class="skill">Strategic Planning</div>
+            <div class="skill">Honing</div>
+            <div class="skill">Adaptability</div>
+          </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section" id="education">
+          <h2 class="section-title">Education</h2>
+          <div class="education-item">
+            <h3>BBA DBE</h3>
+            <p>IIM, Bangalore</p>
+            <p class="date">2024 - Pursuing</p>
+          </div>
+          <div class="education-item">
+            <h3>BBA (Foreign Trade)</h3>
+            <p>DAVV, Indore</p>
+            <p class="date">2023 - Pursuing</p>
+          </div>
+          <div class="education-item">
+            <h3>Class 12th</h3>
+            <h5>Percentage: 79.8%</h5>
+            <p>St. Paul H.S. School, Indore</p>
+          </div>
+          <div class="education-item">
+            <h3>Class 10th</h3>
+            <h5>Percentage: 92.8%</h5>
+            <p>DPS, Aligarh</p>
+          </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section" id="experience">
+          <h2 class="section-title">Professional Experience</h2>
+          <div class="experience-item">
+            <h3>Market Researcher</h3>
+            <p>Fagro India, Indore</p>
+            <p class="date">May 2024 - Present</p>
+            <ul>
+              <li>
+                Led detailed market analysis to uncover trends, consumer
+                behaviors, and competitive landscapes.
+              </li>
+              <li>
+                Developed proficiency in diverse research methodologies,
+                contributing to effective strategic planning and implementation.
+              </li>
+            </ul>
+          </div>
+          <div class="experience-item">
+            <h3>Organizing Committee Member</h3>
+            <p>IAAS World</p>
+            <ul>
+              <li>
+                Played a key role on the organizing committee for the IAAS World
+                annual directors meet in India, coordinating logistics and
+                ensuring smooth execution of the prestigious international
+                event.
+              </li>
+              <li>
+                Collaborated with a diverse team to plan and manage event
+                schedules, guest accommodations, and program logistics,
+                contributing to the successful hosting of global directors and
+                dignitaries.
+              </li>
+            </ul>
+          </div>
+          <div class="experience-item">
+            <h3>Member</h3>
+            <p>Krishna Sakhi Welfare Society</p>
+            <ul>
+              <li>
+                Served as a dedicated member of the Krishna Sakhi Welfare
+                Society, a non-profit organization focused on the development of
+                Slum areas.
+              </li>
+              <li>
+                Actively participated in the surveys, meetings for solving the
+                problems, and campaigning programs to support marginalized
+                communities.
+              </li>
+            </ul>
+          </div>
+          <div class="experience-item">
+            <h3>Sports Secretary</h3>
+            <p>St. Paul H.S. School, Indore</p>
+            <ul>
+              <li>
+                Organized and led school-wide sports events and activities,
+                demonstrating strong leadership by coordinating schedules,
+                motivating team members, and ensuring the smooth execution of
+                events.
+              </li>
+              <li>
+                Collaborated closely with coaches, teachers, and fellow students
+                to foster a spirit of teamwork and sportsmanship, emphasizing
+                dedication and perseverance in achieving athletic goals.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Workshops Section -->
+        <section class="section" id="workshops">
+          <h2 class="section-title">Workshops</h2>
+          <div class="workshop-item">
+            <h3>Marketing and Finance by IIM Indore</h3>
+            <ul>
+              <li>
+                Engaged in a specialized workshop on marketing and finance
+                conducted by IIM Indore, focusing on cutting-edge strategies in
+                market analysis and financial management.
+              </li>
+              <li>
+                Acquired practical knowledge from industry experts on market
+                segmentation, digital marketing trends, and financial planning,
+                enhancing proficiency in strategic decision-making.
+              </li>
+            </ul>
+          </div>
+          <div class="workshop-item">
+            <h3>
+              Financial Modeling, Marketing and Data Analytics by PGDAV,
+              University of Delhi
+            </h3>
+            <ul>
+              <li>
+                Participated in a University of Delhi workshop covering
+                financial modeling, marketing strategies, and data analytics,
+                gaining practical skills in quantitative analysis and strategic
+                planning.
+              </li>
+              <li>
+                Learned advanced techniques in financial forecasting, market
+                research, and data interpretation from industry experts,
+                enhancing proficiency in data-driven decision-making.
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer-content">
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p>Email: siddharthjain2839@gmail.com</p>
+            <p>Phone: +91 87709 96600</p>
+          </div>
+         
+          <div class="copyright">
+            <p>&copy; 2025 Siddharth Jain. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle functionality
+      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            // Close mobile menu if open
+            navLinks.classList.remove("active");
+
+            // Calculate the position to scroll to (accounting for the fixed navbar)
+            const navbarHeight = document.querySelector(".navbar").offsetHeight;
+            const targetPosition =
+              targetElement.getBoundingClientRect().top +
+              window.pageYOffset -
+              navbarHeight;
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Add active class to navbar items on scroll
+      window.addEventListener("scroll", () => {
+        const sections = document.querySelectorAll("section");
+        const navItems = document.querySelectorAll(".nav-links a");
+
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          const navbarHeight = document.querySelector(".navbar").offsetHeight;
+
+          if (window.pageYOffset >= sectionTop - navbarHeight - 10) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navItems.forEach((item) => {
+          item.classList.remove("active");
+          if (item.getAttribute("href") === `#${current}`) {
+            item.classList.add("active");
+          }
+        });
+      });
+
+      // Add animation on scroll for sections
+      window.addEventListener("DOMContentLoaded", () => {
+        const elementsToAnimate = document.querySelectorAll(
+          ".education-item, .experience-item, .workshop-item, .skills-container"
+        );
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        elementsToAnimate.forEach((element) => {
+          element.style.opacity = "0";
+          element.style.transform = "translateY(20px)";
+          element.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+          observer.observe(element);
+        });
+      });
+    </script>
+  </body>
+</html>
